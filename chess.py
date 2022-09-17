@@ -1,4 +1,6 @@
 from constants import *
+from game import Game
+
 import pygame
 import sys
 
@@ -7,9 +9,12 @@ class Main:
         pygame.init()
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         pygame.display.set_caption('Chess')
+        self.game = Game()
 
     def mainloop(self):
         while True:
+            self.game.make_checkerboard(self.screen)
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
