@@ -1,5 +1,3 @@
 # Chess-AI
-Need to have pygame library installed:  
-python3 -m pip install pygame  
-  
-Frontend layout based on: https://www.youtube.com/watch?v=OpL0Gcfn4B4
+p = white pawn, n = white knight, b = white bishop, r = white rook, q = white queen, k = white king  
+P = black pawn, N = black knight, B = black bishop, R = black rook, Q = black queen, K = black king

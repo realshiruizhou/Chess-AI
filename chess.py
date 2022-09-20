@@ -1,27 +1,28 @@
-from constants import *
-from game import Game
+from board import Board
 
-import pygame
-import sys
+class Main():
+    def play_chess(self):
+        # set up board
+        board = Board()
 
-class Main:
-    def __init__(self):
-        pygame.init()
-        self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
-        pygame.display.set_caption('Chess')
-        self.game = Game()
+        # True for white, false for black
+        player_color = False if input("What color do you want to play? W or B ") == "B" else True
+        delay = int(input("How long would you like the engine to think (seconds)? "))
 
-    def mainloop(self):
-        while True:
-            self.game.make_checkerboard(self.screen)
+        while board.game_over() == 2:
+            print(board)
+            if board.white_move == player_color:
+                player_move = input("What move are you going to play? ")
+            
 
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    sys.exit()
-                
-                pygame.display.update()
-        
+        outcome = board.game_over()
+        if outcome == -1:
+            print('Black Wins!')
+        elif outcome == 1:
+            print('White Wins!')
+        else:
+            print('Stalemate!')    
+
 if __name__ == "__main__":
     main = Main()
-    main.mainloop()
+    main.play_chess()
