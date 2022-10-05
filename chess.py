@@ -1,6 +1,6 @@
 from board import Board
 
-class Main():
+class Main:
     def play_chess(self):
         # set up board
         board = Board()
